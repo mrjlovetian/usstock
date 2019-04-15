@@ -6,16 +6,17 @@ import json
 class UsSpider(scrapy.Spider):
     name = 'us'
     allowed_domains = ['163.com']
-    baseUrl = 'http://quotes.money.163.com/us/service/usrank.php?host=/us/service/usrank.php&page=0&query=UPDATE:_exists_true;PRICE:_exists_true;typename:nasdaq&fields=no,SYMBOL,NAME,PRICE,UPDOWN,PERCENT,WEEK52_HIGH,WEEK52_LOW,TCAP,PE&count=2500&type=query&callback=callback_704314870&req=11010'
+    baseUrl = 'http://quotes.money.163.com/us/service/usrank.php?host=/us/service/usrank.php&page=0&query=UPDATE:_exists_true;PRICE:_exists_true;typename:nasdaq&fields=no,SYMBOL,NAME,PRICE,UPDOWN,PERCENT,WEEK52_HIGH,WEEK52_LOW,TCAP,PE&count=2&type=query&callback=callback_704314870&req=11010'
     start_urls = [baseUrl]
 
     def parse(self, response):
-        usstocks = json.loads(response.body)['list']
-        for usstock in usstocks:
-            item = UsstockItem()
-            item['name'] = usstock['NAME']
-            item['symbol'] = usstock['SYMBOL']
-            item['no'] = usstock['NO']
-            yield item
+        print ('........................', json.loads(response.body))
+        # usstocks = json.loads(response.body)['list']
+        # for usstock in usstocks:
+        #     item = UsstockItem()
+        #     item['name'] = usstock['NAME']
+        #     item['symbol'] = usstock['SYMBOL']
+        #     item['no'] = usstock['NO']
+        #     yield item
         
         

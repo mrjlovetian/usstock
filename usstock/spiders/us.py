@@ -6,7 +6,7 @@ import json
 class UsSpider(scrapy.Spider):
     name = 'us'
     allowed_domains = ['163.com']
-    baseUrl = 'http://quotes.money.163.com/us/service/usrank.php?host=/us/service/usrank.php&page=0&query=UPDATE:_exists_true;PRICE:_exists_true;typename:nasdaq&fields=no,SYMBOL,NAME,PRICE,UPDOWN,PERCENT,WEEK52_HIGH,WEEK52_LOW,TCAP,PE&count=2&type=query&req=11010'
+    baseUrl = 'http://quotes.money.163.com/us/service/usrank.php?host=/us/service/usrank.php&page=0&query=UPDATE:_exists_true;PRICE:_exists_true;typename:nasdaq&fields=no,SYMBOL,NAME,PRICE,UPDOWN,PERCENT,WEEK52_HIGH,WEEK52_LOW,TCAP,PE&count=3500&type=query&req=11010'
     start_urls = [baseUrl]
 
     def parse(self, response):

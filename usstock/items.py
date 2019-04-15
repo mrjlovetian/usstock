@@ -12,3 +12,4 @@ class UsstockItem(scrapy.Item):
     name = scrapy.Field()
     symbol = scrapy.Field()
     no = scrapy.Field()
+    typename = scrapy.Field()

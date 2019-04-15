@@ -10,7 +10,7 @@ class UsSpider(scrapy.Spider):
     start_urls = [baseUrl]
 
     def parse(self, response):
-        body = usstocks = json.loads(response.body)
+        body = json.loads(response.body)
         print ('........................', body)
         # usstocks = json.loads(response.body)['list']
         # for usstock in usstocks:

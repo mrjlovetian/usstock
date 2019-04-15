@@ -13,11 +13,14 @@ class UsSpider(scrapy.Spider):
         # body = json.loads(response.body)
         # print ('........................', body)
         usstocks = json.loads(response.body)['list']
+        i = 1
         for usstock in usstocks:
             item = UsstockItem()
             item['name'] = usstock['NAME']
             item['symbol'] = usstock['SYMBOL']
-            item['no'] = usstock['NO']
+            item['no'] = str(i)
+            item['typename'] = 'nasdaq'
+            i += 1
             yield item
         
         

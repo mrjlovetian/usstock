@@ -11,7 +11,7 @@ class UsstockPipeline(object):
     def process_item(self, item, spider):
         db = pymysql.connect('localhost', 'root', '897011805', 'yhj')
         cursor = db.cursor()
-        sql = """INSERT INTO usstock values ('%s', '%s', '%s')"""%(item['name'], item['symbol'], item['no'])
+        sql = """INSERT INTO usstock values ('%s', '%s', '%s', '%s')"""%(item['name'], item['symbol'], item['no'], item['typename'])
         cursor.execute(sql)
         db.commit()
         db.close()
